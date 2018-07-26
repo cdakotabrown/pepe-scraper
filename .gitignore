@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#boilerplate
+**/__pycache__/
+.cache/
+.eggs/
+*.egg-info/
+docs/_build
+.virtualenv

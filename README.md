@@ -1,37 +1,79 @@
-## Welcome to GitHub Pages
+# Pepe Scraper
+Get some Pepes or something I dunno.
 
-You can use the [editor on GitHub](https://github.com/cdakotabrown/pepe-scraper/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Uses Python Project Boilerplate
+==========================
 
-### Markdown
+This repo provides a standardized template for modern Python projects based
+on the layout [recommended by Kenneth Reitz](http://www.kennethreitz.org/essays/repository-structure-and-python).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This version adds:
+* Support for installing development dependencies through setup.py
+* PyTest unit-test support
+* An [.editorconfig](http://editorconfig.org/) file
+* Sphinx documentation generation through setup.py
 
-```markdown
-Syntax highlighted code block
+## Getting Started
 
-# Header 1
-## Header 2
-### Header 3
+The project is ready to run as is. You will need Python 2.7 or later.
 
-- Bulleted
-- List
+### Create a Virtual Environment
 
-1. Numbered
-2. List
+After cloning or downloading the repo, create a Python virtual environment with:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+python -m venv .virtualenv
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+if the `pyvenv` command does not exist on your system.
 
-### Jekyll Themes
+### Activate the Virtual Environment
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cdakotabrown/pepe-scraper/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Now activate the virtual environment. on macOS, Linux and Unix systems, use:
 
-### Support or Contact
+```
+source .virtualenv/bin/activate
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+On Windows:
+
+```
+.virtualenv\Scripts\activate.bat
+```
+
+### Install the Development Environment
+
+Now run:
+
+```
+pip install -e .[dev]
+```
+
+This will install the packages the project depends on in production as well as packages needed during development.
+
+At this point, you are ready to start modifying to template for your own needs.
+
+## Testing
+
+You can run unit tests through setup.py with:
+
+```
+python setup.py test
+```
+
+or just run pytest directly:
+
+```
+pytest
+```
+
+## Documentation
+
+To generate Sphinx documentation, run:
+
+```
+python setup.py doc
+```
+
+The generated documentation will be available in `docs/_build`
