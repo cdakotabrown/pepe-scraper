@@ -15,21 +15,12 @@ AUTHOR = 'Keath Milligan'
 REQUIRED_PYTHON_VERSION = (2, 7)
 PACKAGES = ['sample']
 INSTALL_DEPENDENCIES = []
-SETUP_DEPENDENCIES = [
-]
-TEST_DEPENDENCIES = [
-    'pytest'
-]
-EXTRA_DEPENDENCIES = {
-    'dev': [
-        'pytest',
-        'flake8',
-        'Sphinx'
-    ]
-}
+SETUP_DEPENDENCIES = []
+TEST_DEPENDENCIES = ['pytest']
+EXTRA_DEPENDENCIES = {'dev': ['pytest', 'flake8', 'Sphinx', 'yapf']}
 
 if sys.version_info < REQUIRED_PYTHON_VERSION:
-    sys.exit('Python >= 2.7 is required. Your version:\n'+sys.version)
+    sys.exit('Python >= 2.7 is required. Your version:\n' + sys.version)
 
 
 class PyTest(TestCommand):
@@ -70,13 +61,14 @@ class BuildDocs(Command):
         import sphinx
         metadata = self.distribution.metadata
         docs = os.path.join(os.getcwd(), 'docs')
-        sphinx.main(['',
-                     '-D', 'project='+metadata.name,
-                     '-D', 'copyright={}, {}'.format(datetime.now().year,
-                                                     metadata.author),
-                     '-D', 'version='+metadata.version,
-                     '-D', 'release='+metadata.version,
-                     docs, os.path.join(docs, '_build')])
+        sphinx.main([
+            '', '-D',
+            'project=' + metadata.name, '-D', 'copyright={}, {}'.format(
+                datetime.now().year,
+                metadata.author), '-D', 'version=' + metadata.version, '-D',
+            'release=' + metadata.version, docs,
+            os.path.join(docs, '_build')
+        ])
 
 
 setup(
@@ -92,5 +84,4 @@ setup(
     cmdclass={
         'test': PyTest,
         'doc': BuildDocs
-    }
-)
+    })
